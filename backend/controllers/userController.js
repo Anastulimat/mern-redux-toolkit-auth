@@ -77,9 +77,15 @@ const authUser = async (req, res) => {
  * @param res
  */
 const logoutUser = async (req, res) => {
+    res.cookie('jwt', '', {
+        httpOnly: true,
+        expires: new Date(0),
+
+    });
+
     res.status(200).json({
-        message: 'Logout User'
-    })
+        message: 'Logged out'
+    });
 };
 
 
