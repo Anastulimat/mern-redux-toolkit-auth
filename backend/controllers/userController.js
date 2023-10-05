@@ -58,7 +58,7 @@ const authUser = async (req, res) => {
         res.status(201).json({
             _id: user._id,
             name: user.name,
-            email: user.name,
+            email: user.email,
         });
     }
     else {
