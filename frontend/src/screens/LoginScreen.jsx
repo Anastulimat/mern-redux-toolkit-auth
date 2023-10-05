@@ -5,6 +5,7 @@ import {Link, useNavigate} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {useLoginMutation} from "../slices/usersApiSlice.js";
 import {setCredentials} from "../slices/authSlice.js";
+import {toast} from "react-toastify";
 
 const LoginScreen = () => {
     const [email, setEmail] = useState('');
@@ -31,7 +32,7 @@ const LoginScreen = () => {
             navigate('/');
         }
         catch (err) {
-            console.log(err?.data?.message || err.error);
+            toast.error(err?.data?.message || err.error)
         }
     }
 
